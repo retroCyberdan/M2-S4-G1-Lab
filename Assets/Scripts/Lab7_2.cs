@@ -12,7 +12,7 @@ public class Lab7_2 : MonoBehaviour
 
         //assegno dei valori ai campi 'nome' e 'punteggio'
         p1.nome = "Guybrush Threepwood";
-        //p1.punteggio = 10;//prima di rimuovere il commento, andare nella classe 'Player' e aggiungere commento a 'private int punteggio'
+        p1.punteggio = 10;
 
         //eseguo prima il metodo 'PresentatiComePirata' per mostrare il punteggio iniziale
         p1.PresentatiComePirata();
@@ -23,8 +23,7 @@ public class Lab7_2 : MonoBehaviour
         p1.IncrementaPunteggio(80);
 
         //rimando in Console il unteggio modificato
-        //Debug.Log($"Ah-ah! Adesso che ho sposato il Governatore più sexy dell'Area delle Tre Isole, il mio punteggio è di {p1.punteggio} !");
-        //^^^^prima di rimuovere il commento, andare nella classe 'Player' e aggiungere commento a 'private int punteggio'
+        Debug.Log($"Ah-ah! Adesso che ho sposato il Governatore più sexy dell'Area delle Tre Isole, il mio punteggio è di {p1.punteggio} !");
     }
 
     // Update is called once per frame
