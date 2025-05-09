@@ -7,8 +7,24 @@ public class Player
     //Creo i campi nome e punteggio
     [SerializeField] public string nome;//sono entrambi 'public' altrimenti non posso richiamarle all'esterno
     [SerializeField] private int punteggio;//inoltre, li rendo 'SerializeField'
+    
+    //variabili e costruttore aggiunti per 'Lab7_4':
+    [SerializeField] public int salute;
+    [SerializeField] public int livello;
 
-    [SerializeField] public int salute;//aggiunte per 'Lab7_4'
+    //Creo un COSTRUTTORE che chiamo 'Player' con parametri di DEFAULT
+    public Player()
+    {
+        nome = "(-)";
+        salute = 0;
+        livello = 1;
+    }
+    public Player (string nome, int salute, int livello)
+    {
+        this.nome = nome;
+        this.salute = salute;
+        this.livello = livello;
+    }
     
     //Per puro divertimento XD, creo due funzioni che sostanzialmente fanno la stessa cosa, cambia solamente il testo
     public void PresentatiComePirata()
@@ -52,5 +68,19 @@ public class Player
             return true;
         }
         return false;
+    }
+
+    //Creo i metodi per attaccare il nemico e per subire il danno
+    public void AttackEnemy(Enemy nemico, int danno)
+    {
+        nemico.SubisciDanno(danno);
+        Debug.Log($"{nome} ha colpito {nemico.nome} infliggendogli {danno} danni.");
+        Debug.Log($"A {nemico.nome} restano {nemico.salute} HP.");
+    }
+
+    public int SubisciDanno (int danno)
+    {
+        salute -= danno;
+        return salute;
     }
 }
